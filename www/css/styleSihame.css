@@ -1,0 +1,101 @@
+/***** General ****/
+.no-padding{
+    padding: 0 !important;
+}
+/***** General ****/
+
+
+/****menu* left ***/
+
+#profilmenu{
+
+    width: auto;
+    height:145px;
+    margin: 0;
+}
+
+
+.etoile{
+    position: relative;
+    text-align: center ;
+    margin:0;
+    width: auto;
+    height:20px;
+
+}
+
+/****page inscription****/
+
+
+.button-block {
+    background-color: #1f1d2a;
+    color: white;
+    margin-left: 90px;
+}
+
+/***icon dans la page d inscription***/
+#img1{
+    position: relative;
+    width: auto;
+    height:30px;
+    margin-left:-3px;
+}
+
+#img2{
+    position: relative;
+    margin-left:-13px;
+    width: auto;
+    height:37px;
+
+}
+
+
+h4{
+    color:White;
+    text-align: center;
+
+}
+
+
+/***Page profil****/
+
+.iconprofil {
+    position: relative;
+    width: auto;
+    height: 25px;
+}
+
+
+#message{
+width: 92%;
+    margin-left:4%;
+    border : 1px solid;
+    margin-top: 4%;
+    padding: 1%;
+}
+
+/****btn page aide ***/
+
+
+.button4 {
+
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: white;
+    color: #302d40;
+    border: 2px solid #e7e7e7;
+    margin-left: 35%;
+}
+
+#link {
+    color: darkgrey;
+
+}
+
+
+
+
+
+
+
