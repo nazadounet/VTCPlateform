@@ -16,7 +16,7 @@
   -moz-border-radius:0 0 10px 10px;
   border-radius:0 0 10px 10px;
 }
-
+/* bar transparent */
 ion-content.has-header {
   top: 0;
   border-color: transparent;
@@ -34,8 +34,36 @@ ion-content.has-header {
   background-image: none !important;
   border-bottom: none !important;
 
-
 }
+/* end bar transparent */
+
+/* Flex disposition*/
+.Flex-Column{
+  display: flex;
+  flex-direction: column;
+}
+.Flex-Row{
+  display: flex;
+  flex-direction: row;
+}
+
+.Flex-item-center{
+  align-items: center;
+}
+
+.Flex-justify-center{
+  justify-content: center;
+}
+
+.Flex-justify-space-betwenn{
+  justify-content: space-between;
+}
+
+.Flex-justify-space-around{
+  justify-content: space-around;
+}
+/* End Flex disposition*/
+
 /*-------------------------------------------------------*/
 /******************** End General ************************/
 /*-------------------------------------------------------*/
@@ -43,12 +71,6 @@ ion-content.has-header {
 /*-------------------------------------------------------*/
 /******************** SignIn page ************************/
 /*-------------------------------------------------------*/
-#containerSignIp{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
 #thelogoSignIp{
   margin-top: 10vh;
@@ -245,17 +267,12 @@ ion-content.has-header {
 /********************  Litige page ************************/
 /*-------------------------------------------------------*/
 .litigePageContainer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-top: -20px;
 }
 
 .litigeTitleContainer{
   display: flex;
   flex-direction: row;
-  align-items: center;
   background: #302c40;
   width: 100%;
   text-align: center;
