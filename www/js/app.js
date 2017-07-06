@@ -46,22 +46,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
   // page 1 = page de garde quand l'user va se connecté  //
   $stateProvider.state('inscription',{
     url : '/inscription',
-    templateUrl: 'templates/inscription.html',
+    templateUrl: 'templates/inscription.html'
   });
 
   $stateProvider.state('paiement',{
     url : '/paiement',
-    templateUrl: 'templates/paiement.html',
+    templateUrl: 'templates/paiement.html'
   });
 
   $stateProvider.state('profil',{
     url : '/profil',
-    templateUrl: 'templates/profil.html',
+    templateUrl: 'templates/profil.html'
   });
 
   $stateProvider.state('aide',{
     url : '/aide',
-    templateUrl: 'templates/aide.html',
+    templateUrl: 'templates/aide.html'
   });
 
   $stateProvider.state('Litige',{
@@ -72,16 +72,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('historique',{
     url : '/historique',
-    templateUrl: 'templates/historique.html',
+    templateUrl: 'templates/historique.html'
   });
 
   $stateProvider.state('AideAutre',{
     url : '/aideautre',
-    templateUrl: 'templates/aideAutre.html',
+    templateUrl: 'templates/aideAutre.html'
   });
   /************************* SIHAME *********************************/
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/inscription');
+  $urlRouterProvider.otherwise('/MapUser');
 });

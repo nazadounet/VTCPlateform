@@ -1,74 +1,13 @@
-app.controller('MapUserCtrl', function($scope, $cordovaGeolocation, $ionicPlatform){
+app.controller('MapUserCtrl', function($scope, MapDirectionFactory){
+
 
 /***************************** GOOGLE MAP SECTION *******************************************/
-  var options = {timeout: 10000, enableHighAccuracy: true};
 
-  $scope.price ='';
-
-  function initialize() {
-
-    $cordovaGeolocation
-      .getCurrentPosition(options)
-      .then(function (position) {
-        var lat  = position.coords.latitude;
-        var long = position.coords.longitude;
-
-
-        var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: {lat: lat, lng: long},
-          disableDefaultUI: true
-        });
-
-
-        directionsDisplay.setMap(map);
-
-        var myLatLng = {lat: position.coords.latitude, lng: position.coords.longitude}
-
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          icon: "../../img/Social_Media_Socialmedia_network_share_socialnetwork_network-14-512.png"
-        });
-
-        //function allow to get the route Direction dealing with google map api
-        $scope.getRoute = function() {
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
-        };
-      }, function(err) {
-        console.log(err);
-      });
-
-  }
   // load map when the ui is loaded
   $scope.init = function() {
-    initialize();
+    MapDirectionFactory.initializeMap();
   };
 
-  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-
-    var start = $scope.start;
-    var end = $scope.end;
-
-    console.log( $scope.start + ' ' + $scope.end);
-    directionsService.route({
-      origin: start,
-      destination: end,
-      travelMode: 'DRIVING'
-    }, function(response, status) {
-      if (status === 'OK') {
-        directionsDisplay.setDirections(response);
-        console.log(response.routes[0].legs[0].distance);
-        $scope.price = Math.round(response.routes[0].legs[0].distance.value * 0.00102 + 1.20);
-        console.log($scope.price);
-      } else {
-        window.alert('Directions request failed due to ' + status);
-      }
-    });
-  }
 /***************************** GOOGLE MAP SECTION *******************************************/
 
 /** PARTI 1 START ROUTE AND CHOOSE OPTION CAR AND SEXE **/
@@ -120,7 +59,7 @@ app.controller('MapUserCtrl', function($scope, $cordovaGeolocation, $ionicPlatfo
   $scope.carCategorie = {
     'standarTaped' : true,
     'luxTaped' : false,
-    'vanTaped' :false,
+    'vanTaped' :false
   };
 
   $scope.standarTaped = function () {
@@ -128,7 +67,7 @@ app.controller('MapUserCtrl', function($scope, $cordovaGeolocation, $ionicPlatfo
       $scope.carCategorie = {
         'standarTaped' : true,
         'luxTaped' : false,
-        'vanTaped' : false,
+        'vanTaped' : false
       };
     }
   };
@@ -138,7 +77,7 @@ app.controller('MapUserCtrl', function($scope, $cordovaGeolocation, $ionicPlatfo
       $scope.carCategorie = {
         'standarTaped' : false,
         'luxTaped' : true,
-        'vanTaped' : false,
+        'vanTaped' : false
       };
     }
   };
@@ -148,7 +87,7 @@ app.controller('MapUserCtrl', function($scope, $cordovaGeolocation, $ionicPlatfo
       $scope.carCategorie = {
         'standarTaped' : false,
         'luxTaped' : false,
-        'vanTaped' : true,
+        'vanTaped' : true
       };
     }
   };
@@ -214,6 +153,15 @@ app.controller('MapUserCtrl', function($scope, $cordovaGeolocation, $ionicPlatfo
     $scope.interfaceMapUSer.endDirectionStep = false;
     $scope.interfaceMapUSer.validationCourseStep = true;
 
-    $scope.getRoute();
+    var paris = 'madrid';
+    var londres = 'londres';
+
+    MapDirectionFactory.getRoute(paris, londres)
+        .then(function (route) {
+            console.log(route);
+            console.log('Km distance : ' + route.routes[0].legs[0].distance.text + ' || distance en chiffre : ' + route.routes[0].legs[0].distance.value);
+        }, function (msg) {
+            console.log(msg);
+        });
   }
 });
