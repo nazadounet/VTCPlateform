@@ -1,0 +1,28 @@
+Dragonwick FG  Version 1.30 
+
+This font was digitized in 1990 by David Rakowski and published as shareware. I have no idea as to whether he also designed it or scanned one of the solotype catalogue samples. 
+Dragonwick 1990 contained no characters with diacritical marks and only limited punctuation. In 2002, I added most of these and also changed a few characters, compare T and s to the original that is still around everywhere. The most significant changes were made to the F which I re-created, since the original F would not be recognisable easily in my country. You still find the orginal as the florin character (#131). Almost 90 kerning pairs were added to relieve the worst spacing problems.
+For the Fontgrube relaunch 2013 I made a slight revision, added missing kern pairs and adjusted the guillemets to fit the size of the lowercase characters.
+
+The first version of this font was published in 1990 to support starving composers-to-be at Columbia University, NY (see below). I have no idea whether the contact at Columbia University is still good, but if your conscience tells you to do good works unto them, give it a try. As for yours truly, the font is free for your use.
+
+Here is the original info that came with Dragonwick:
+--------- quote from original readme.txt ----------------------------
+Dragonwick is (c) 1990 by David Rakowski, Alle Rechte Vorhalten. Dragonwick is Shareware with a difference; your check for $4.99 should be made out to Columbia University and sent to Cynthia Lemiesz, 703 Dodge Hall, Columbia University, New York, NY 10027 where the payments are treated as tax-deductible donations to help the sadly underfunded Columbia Composers put on their concerts.If you pass it on to your friends (and please DO) all files in this package must be distributed together, unaltered, including the file you are reading.
+------- end quote from original readme.txt --------------------------
+
+David's personal web site is here: http://home.earthlink.net/~ziodavino/album1_001.htm. Apparently he has abandoned fontmaking completely.
+
+On his former font activity he says on http://home.earthlink.net/~ziodavino/album1_009.htm:
+
+"At this point, I'm no longer interested in the care and feeding of typefaces, and am ignoring any e-mails about fonts that come my way. Y'all may continue to do what you wish with the shareware fonts". 
+
+Ok, Dave, I'm not going to bother you with e-mails, and I wish do redo a few of your fonts and offer the result to the general public.
+
+Distribution Policy: You may share this font as long as you pass it on together with this readme file.
+You are not allowed to make the use of a particular download manager software obligatory in order to download the font from your web site. In both cases (stripping off the readme file, obligatory download manager from your site) the download offer is illegal and has to be removed without further notice. 
+
+April 2013
+Andreas Höfeld
+www.fontgrube.de/
+www.fontgrube.de/en/ for English version
