@@ -34,7 +34,7 @@
 
 
   <!-- google map api -->
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDSHhwoNsV1WPKaUDNIaFetj92Vqi6Qwxc"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDSHhwoNsV1WPKaUDNIaFetj92Vqi6Qwxc&libraries=places"></script>
   <!-- google map api -->
 
   <!-- your app's js -->
@@ -43,28 +43,24 @@
   <!-- Controller declaration -->
   <script src="js/controller/SignUpCtrl.js"></script>
   <script src="js/controller/MapUserCtrl.js"></script>
-  <script src="js/controller/HelpCtrl.js"></script>
+    <script src="js/controller/PaiementCtrl.js"></script>
+
+    <script src="js/controller/TestCtrl.js"></script>
   <!-- Controller declaration -->
 
   <!-- Services declaration -->
-  <script src="js/modules/factories/GetGeolocationFactory.js"></script>
   <script src="js/modules/factories/InitMapFactory.js"></script>
+    <script src="js/modules/factories/GetGeolocationFactory.js"></script>
   <script src="js/modules/factories/GeocodingFactory.js"></script>
+    <script src="js/modules/factories/GoogleMapMarkerFactory.js"></script>
   <script src="js/modules/factories/GetDirectionFactory.js"></script>
+    <script src="js/modules/factories/GetTimeTravel.js"></script>
   <!-- services declaration -->
 
-  <!--ngMap lib-->
-  <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
-  <!--ngMap lib-->
-
-  <!-- Timer link ressource Angular Timer -->
-  <script src="lib/moment/min/moment.min.js"></script>
-  <script src="lib/moment/min/locales.min.js"></script>
-  <script src="lib/humanize-duration/humanize-duration.js"></script>
-  <script src="lib/angular-timer/dist/angular-timer.min.js"></script>
-  <!-- Timer link ressource Angular Timer -->
-
-
+    <!-- lib declaration -->
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+    <!-- lib declaration -->
 </head>
 
 <body ng-app="starter">
@@ -107,6 +103,10 @@
             </a>
           </div>
         </ion-item>
+
+          <ion-item>
+              <p menu-close ui-sref="Link">Link</p>
+          </ion-item>
 
         <ion-item>
           <p menu-close ui-sref="MapUser">Carte</p>

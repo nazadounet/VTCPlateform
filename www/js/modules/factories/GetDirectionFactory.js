@@ -1,37 +1,41 @@
-app.factory('GetDirectionFactory', function ($q) {
+app.factory('GetDirectionFactory', function () {
 
-    return {
+    var request = {};
 
-        getRoute: function (directionsDisplay, directionsService,paris, londres) {
+    var factory = {
 
-            var deferred = $q.defer();
+        getRoute: function (directionsDisplay, directionsService, start, end, wayPoints) {
 
-            var response;
+            if (wayPoints[0].location) {
+                request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: 'DRIVING',
+                    avoidHighways: false,
+                    avoidTolls: true,
+                    waypoints: wayPoints,
+                    optimizeWaypoints: true
+                };
+            } else {
+                request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: 'DRIVING',
+                    avoidHighways: false,
+                    avoidTolls: true
 
-            // var start = 'paris'; //$scope.start;
-            //var end = 'londres';//$scope.end;
-
-            var request = {
-                origin: paris,
-                destination: londres,
-                travelMode: 'DRIVING'
-            };
+                };
+            }
 
             directionsService.route(request, function (result, status) {
                 if (status == 'OK') {
                     directionsDisplay.setDirections(result);
-                    response = {
-                        'kmDistance' : result.routes[0].legs[0].distance.text,
-                        'chiffreDistance' : result.routes[0].legs[0].distance.value
-                    };
-                    deferred.resolve(response);
                 } else {
-                    deferred.reject('error to get route :' + status);
+                    console.log('error to get route :' + status);
                 }
             });
-            return deferred.promise;
         }
+    };
 
-    }
-
+    return factory;
 });

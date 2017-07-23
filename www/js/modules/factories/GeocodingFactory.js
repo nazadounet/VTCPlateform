@@ -2,23 +2,18 @@ app.factory('GeocodingFactory', function ($http, $q) {
 
     var deferred = $q.defer();
 
-    var geocodingUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
+    var factory = {
 
-    var coordonates = 'latlng=';
-
-    var geocodinfApiKey = '&key=AIzaSyDZo7QmSYquSwqOCRPi3hNvGNXnojNSeYI';
-
-    return {
-
+        //first function who try to get formated addrese from GPS coordonates
         getAddressFromGps: function (lat, long) {
-            var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=AIzaSyDZo7QmSYquSwqOCRPi3hNvGNXnojNSeYI'
+            var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=AIzaSyDZo7QmSYquSwqOCRPi3hNvGNXnojNSeYI';
             $http.get(url)
                 .then(function (response) {
-                    deferred.resolve(response);
+                    deferred.resolve(response);// return a promise with results from Google Geocoding API
                 }, function (msg) {
                     console.log('GeocodingFactory -- erreur lors de récupération de l\'adresse depuis GPS :' + msg)
                 });
-            return deferred.promise;
+            return deferred.promise;// return result, he's catcher by initmapService then returned to controller to display addresse in view
         },
 
         getGpsFromAddress: function (streetNb, streetName, city) {
@@ -33,7 +28,8 @@ app.factory('GeocodingFactory', function ($http, $q) {
                 });
             return deferred.promise;
         }
+    };
 
-    }
+    return factory;
 
 });

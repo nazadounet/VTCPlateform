@@ -1,4 +1,4 @@
-var app = angular.module('starter', ['ionic', 'ngCordova', 'timer']);
+var app = angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-timepicker']);
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -15,14 +15,39 @@ app.run(function($ionicPlatform) {
   });
 });
 
+app.config(function (ionicDatePickerProvider) {
+    var datePickerObj = {
+        inputDate: new Date(),
+        titleLabel: 'Select a Date',
+        setLabel: 'Set',
+        todayLabel: 'Today',
+        closeLabel: 'Close',
+        mondayFirst: true,
+        weeksList: ["D", "L", "M", "M", "J", "V", "S"],
+        monthsList: ["Jan", "Féb", "Mars", "Avril", "Mai", "Juin", "Juil", "Aout", "Sept", "Oct", "Nov", "Déc"],
+        templateType: 'popup',
+        from: new Date(2012, 8, 1),
+        to: new Date(2018, 8, 1),
+        showTodayButton: true,
+        dateFormat: 'dd MMMM yyyy',
+        closeOnSelect: false,
+        disableWeekdays: []
+    };
+    ionicDatePickerProvider.configDatePicker(datePickerObj);
+});
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
 
   $stateProvider
 
+      .state('Test', {
+          url: '/test',
+          templateUrl: 'templates/test.html',
+          controller: 'TestCtrl'
+      })
     .state('Link', {
-    url: '/Link',
+        url: '/link',
     templateUrl: 'templates/link.html'
   })
     .state('SignUp', {
@@ -34,6 +59,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/MapUser',
     templateUrl: 'templates/mapUser.html',
     controller: 'MapUserCtrl'
+    })
+      .state('Card', {
+          url: '/card',
+          templateUrl: 'templates/card.html',
+          controller: 'PaiementCtrl'
   });
 
   /************************* SIHAME *********************************/
@@ -64,7 +94,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/aide.html'
   });
 
-  $stateProvider.state('Litige',{
+    $stateProvider.state('litige', {
     url : '/litige',
     templateUrl: 'templates/litige.html',
     controller:'HelpCtrl'
@@ -75,13 +105,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/historique.html'
   });
 
-  $stateProvider.state('AideAutre',{
-    url : '/aideautre',
+    $stateProvider.state('aideAutre', {
+        url: '/aideAutre',
     templateUrl: 'templates/aideAutre.html'
   });
   /************************* SIHAME *********************************/
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/MapUser');
+  $urlRouterProvider.otherwise('/link');
 });

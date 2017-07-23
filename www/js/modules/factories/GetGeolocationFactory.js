@@ -1,6 +1,6 @@
 app.factory('GetGeolocationFactory', function ($cordovaGeolocation, $q) {
 
-    return{
+    var factory = {
 
         getGeolocation : function () {
 
@@ -11,14 +11,13 @@ app.factory('GetGeolocationFactory', function ($cordovaGeolocation, $q) {
             $cordovaGeolocation
                 .getCurrentPosition(options)
                 .then(function (position) {
-
                     deferred.resolve(position);
-
                 }, function (err) {
                     console.log(err);
                 });
             return deferred.promise;
         }
+    };
 
-    }
+    return factory;
 });

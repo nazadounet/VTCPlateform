@@ -1,21 +1,43 @@
-app.controller('MapUserCtrl', function ($scope, InitMapFactory, GetGeolocationFactory, GetDirectionFactory) {
+app.controller('MapUserCtrl', function ($scope, InitMapFactory, GetTimeTravel, GetDirectionFactory) {
 
+    $scope.userData = {
+        'markerPosition': '',
+        'destination': ''
+    };
 
     /***************************** GOOGLE MAP SECTION *******************************************/
 
+        //define 2 variable used by google map to get and display direction, they are send to the service InitMap
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var directionsService = new google.maps.DirectionsService;
 
-    // load map when the ui is loaded
+    var wayPoints = [];
+
     $scope.init = function () {
-        InitMapFactory.initializeMap(directionsDisplay, directionsService);
+        InitMapFactory.initializeMap(directionsDisplay, directionsService) //call the service to generate map
+            .then(function (response) {
+                $scope.userData.markerPosition = response;
+            }, function (msg) {
+                console.log('From MapUserCtrl - getting error: ' + msg)
+            });
     };
-    GetGeolocationFactory.getGeolocation()
-        .then(function (response) {
-            //console.log(response)
-        }, function (msg) {
-            console.log(msg)
-        });
+
+    $scope.reGeolocation = function () {
+        console.log('controller : ', $scope.userData.markerPosition);
+        //ici on inject la position actuel du marker cf InitMapFactory.actualiseCurrentUserPosition
+        InitMapFactory.actualiseCurrentUserPosition($scope.userData.markerPosition)
+            .then(function () {
+                console.log('reGeolocation done')
+            }, function (msg) {
+                console.log('MapUserCtrl - reGeolocation error : ' + msg);
+            });
+    };
+
+    //listen the googleMarkerFactory, to get the changed position of the dragable marker made by user.
+    $scope.$on('markerDraged', function (event, args) {
+        $scope.userData.markerPosition = args; // here we catch the new marker position from the event 'markerDraged'.
+        console.log($scope.userData.markerPosition);
+    });
 
     /***************************** GOOGLE MAP SECTION *******************************************/
 
@@ -24,7 +46,7 @@ app.controller('MapUserCtrl', function ($scope, InitMapFactory, GetGeolocationFa
     $scope.interfaceMapUSer = {
         'startDirectionStep': true,
         'endDirectionStep': false,
-        'validationCourseStep': false,
+        'validationCourseStep': false
     };
 
     $scope.backSteps = function () {
@@ -105,7 +127,8 @@ app.controller('MapUserCtrl', function ($scope, InitMapFactory, GetGeolocationFa
     /*Part Button "Valider Départ" to seconde Step*/
     $scope.toEndDirectionStep = function () {
 
-        $scope.start = document.getElementById('start').value;
+        $scope.userData.markerPosition = document.getElementById('start').value;
+        wayPoints.push({location: document.getElementById('wayPoint').value});
 
         $scope.interfaceMapUSer.startDirectionStep = false;
         $scope.interfaceMapUSer.endDirectionStep = true;
@@ -156,20 +179,22 @@ app.controller('MapUserCtrl', function ($scope, InitMapFactory, GetGeolocationFa
 
     $scope.toValidationCourseStep = function () {
 
-        $scope.end = document.getElementById('end').value;
+        $scope.userData.destination = document.getElementById('end').value;
 
         $scope.interfaceMapUSer.startDirectionStep = false;
         $scope.interfaceMapUSer.endDirectionStep = false;
         $scope.interfaceMapUSer.validationCourseStep = true;
 
-        var paris = 'madrid';
-        var londres = 'londres';
+        var start = $scope.userData.markerPosition;
+        var end = $scope.userData.destination;
 
-        GetDirectionFactory.getRoute(directionsDisplay, directionsService, paris, londres)
-            .then(function (route) {
-                console.log(route);
+        GetDirectionFactory.getRoute(directionsDisplay, directionsService, start, end, wayPoints);
+
+        GetTimeTravel.getTimeTravel(start, end)
+            .then(function (reponse) {
+                console.log(reponse);
             }, function (msg) {
-                console.log(msg);
+                console.log('From MapUserCtrl - getDirection/travelData failed : ' + msg);
             });
     }
 });
