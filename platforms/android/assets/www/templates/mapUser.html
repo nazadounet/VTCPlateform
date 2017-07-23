@@ -1,0 +1,222 @@
+<ion-view  ng-init="init()">
+  <ion-content scroll="false">
+
+    <div class="containerMapUser Flex-Column Flex-item-center">
+
+      <div id="map"></div>
+
+      <!--------------------- Section 1 start ----------------------------------------------------->
+      <!------------------------------------------------------------------------------------------ -->
+      <div ng-show="interfaceMapUSer.startDirectionStep == true" class="inputStartContainer">
+        <form>
+          <input id="start" type="text" class="inputStart" placeholder="Point de départ" ng-model="userData.markerPosition">
+          <input id="wayPoint" type="text" class="inputStart" placeholder="Point de départ">
+        </form>
+      </div>
+
+      <div ng-show="interfaceMapUSer.startDirectionStep == true" class="chooseSexeContainer">
+
+        <p class="text">
+          Choix du chauffeur
+        </p>
+
+        <div class="testContainerSexe">
+
+          <div ng-click="maleTaped()" class="divSexeContainer">
+            <img ng-show="!sexe.maleTaped" src="../img/icon_sexe/maleNotActive.png" alt="maleNotActive" class="iconSexe">
+            <img ng-show="sexe.maleTaped" src="../img/icon_sexe/maleActive.png" alt="maleActive" class="iconSexe">
+          </div>
+
+          <div>
+            <img ng-show="!sexe.femelTaped" src="../img/icon_sexe/femelNotActive.png" alt="femelNotActive" class="iconSexe" style="margin-left: 15px;">
+          </div>
+
+          <div ng-click="femelTaped()">
+            <img ng-show="!sexe.femelTaped" src="../img/icon_sexe/femelNotActive.png" alt="femelNotActive" class="iconSexe" style="margin-left: 15px;">
+            <img ng-show="sexe.femelTaped" src="../img/icon_sexe/femelActive.png" alt="femelActive" class="iconSexe"
+                 style="margin-left: 15px;">
+          </div>
+        </div>
+      </div>
+
+      <div ng-show="interfaceMapUSer.startDirectionStep == true" class="carContainer">
+
+        <!-- standar car section -->
+        <div ng-click="standarTaped()">
+
+          <div class="carWithDescription" ng-show="!carCategorie.standarTaped">
+            <img src="../img/icon_voiture/suvNotActive.png" alt="suv" style="width: 50px">
+            <p style="color:#7e7e7e;">Eco</p>
+          </div>
+
+          <div class="carWithDescription" ng-show="carCategorie.standarTaped">
+            <img src="../img/icon_voiture/suvActive.png" alt="suv" style="width: 50px">
+            <p style="color:black;">Eco</p>
+          </div>
+
+        </div>
+        <!-- standar car section -->
+
+        <!-- lux car section -->
+        <div ng-click="luxTaped()">
+
+          <div class="carWithDescription" ng-show="!carCategorie.luxTaped">
+            <img src="../img/icon_voiture/racingNotActive.png" alt="racing" style="width: 50px">
+            <p style="color:#7e7e7e;">Lux</p>
+          </div>
+
+          <div class="carWithDescription" ng-show="carCategorie.luxTaped">
+            <img src="../img/icon_voiture/racingActive.png" alt="racing" style="width: 50px">
+            <p style="color:black;">Lux</p>
+          </div>
+
+        </div>
+        <!-- lux car section -->
+
+        <!-- van car section -->
+        <div ng-click="vanTaped()">
+          <div class="carWithDescription" ng-show="!carCategorie.vanTaped">
+            <img src="../img/icon_voiture/touristNotActive.png" alt="van" style="width: 50px">
+            <p style="color:#7e7e7e;">Van</p>
+          </div>
+
+          <div class="carWithDescription" ng-show="carCategorie.vanTaped">
+            <img src="../img/icon_voiture/touristActive.png" alt="van" style="width: 50px">
+            <p style="color:black;">Van</p>
+          </div>
+          <!-- van car section -->
+        </div>
+      </div>
+
+      <div ng-show="interfaceMapUSer.startDirectionStep == true" class="valideStartContainer">
+
+        <button ng-click="toEndDirectionStep()" class="buttonTikTak">Valider départ</button>
+      </div>
+
+      <!------------------------------------------------------------------------------------------ -->
+      <!--------------------- End Section 1 star ------------------------------------------------ -->
+
+      <!---------------------  Section 2 Destination ----------------------------------------------------->
+      <!----------------------------------------------------------------------------------------------------->
+      <div ng-show="interfaceMapUSer.endDirectionStep == true" class="inputEndContainer">
+        <form>
+          <input id="end" type="text" class="inputEnd" placeholder="Destination">
+        </form>
+      </div>
+
+      <div ng-show="interfaceMapUSer.endDirectionStep == true" class="recapAndPayementMethodeContainer">
+
+        <div class="recapContainer">
+          <div class="recapImageContainer">
+            <img ng-show="carCategorie.standarTaped" src="../img/icon_voiture/suvNotActive.png" alt="suv"
+                 style="width: 60px">
+            <img ng-show="carCategorie.luxTaped" src="../img/icon_voiture/racingNotActive.png" alt="racing"
+                 style="width: 60px">
+            <img ng-show="carCategorie.vanTaped" src="../img/icon_voiture/touristNotActive.png" alt="van"
+                 style="width: 60px">
+
+            <img ng-show="sexe.maleTaped" src="../img/icon_sexe/maleActive.png" alt=""
+                 style="width: 30px; margin-left: 10px">
+            <img ng-show="sexe.femelTaped" src="../img/icon_sexe/femelActive.png" alt=""
+                 style="width: 30px; margin-left: 10px">
+
+          </div>
+
+          <div class="recapTextContainer">
+            <p style="color: white">{{recapCarText}} {{recapSexeText}} - 6min</p>
+          </div>
+        </div>
+
+        <div class="payementContainer">
+          <div ng-click="cardTaped()">
+            <img ng-show="!payementChecked.cardCheked" src="../img/icon_payement/cardNotActive.png" alt=""
+                 style="width: 45px">
+
+            <img ng-show="payementChecked.cardCheked" src="../img/icon_payement/cardActive.png" alt=""
+                 style="width: 45px">
+          </div>
+
+          <div ng-click="cashTaped()">
+            <img ng-show="!payementChecked.cashCheked" src="../img/icon_payement/cashNotActive.png" alt=""
+                 style="width: 45px">
+
+            <img ng-show="payementChecked.cashCheked" src="../img/icon_payement/cashActive.png" alt=""
+                 style="width: 45px">
+          </div>
+        </div>
+      </div>
+
+      <div ng-show="interfaceMapUSer.endDirectionStep == true" class="valideEndContainer">
+        <div class="valideAndBackButton" ng-show="payementChecked.cashCheked || payementChecked.cardCheked">
+          <button ng-click="backSteps()" class="btnRetour button button-icon icon ion-chevron-left"></button>
+          <button ng-click="toValidationCourseStep()" class="btnEndValide">Valider destination</button>
+        </div>
+
+      <div ng-show="!payementChecked.cashCheked && !payementChecked.cardCheked" class="valideAndBackButton">
+        <button ng-click="backSteps()" class="btnRetour button button-icon icon ion-chevron-left"></button>
+        <button class="buttonTikTak btnChoicePayementMethode">Choisez methode de paiement</button>
+      </div>
+      </div>
+      <!--------------------- End Section 2 Destination ----------------------------------------------------->
+      <!------------------------------------------------------------------------------------------ -->
+
+
+      <!---------------------  Section 3 Validation ----------------------------------------------------->
+      <!------------------------------------------------------------------------------------------ -->
+      <div ng-show="interfaceMapUSer.validationCourseStep == true" class="recapDirectionContainer">
+
+        <div class="startRecapContainer">
+          <p>{{start}}</p>
+        </div>
+
+        <div class="endRecapContainer">
+          <p>{{end}}</p>
+        </div>
+      </div>
+
+      <div ng-show="interfaceMapUSer.validationCourseStep == true" class="recapAndPayementBeforValidationContainer">
+
+        <div class="recapBeforValidationContainer">
+          <div class="recapImageBeforeValidationContainer">
+            <img ng-show="carCategorie.standarTaped" src="../img/icon_voiture/suvNotActive.png" alt="suv"
+                 style="width: 60px">
+            <img ng-show="carCategorie.luxTaped" src="../img/icon_voiture/racingNotActive.png" alt="racing"
+                 style="width: 60px">
+            <img ng-show="carCategorie.vanTaped" src="../img/icon_voiture/touristNotActive.png" alt="van"
+                 style="width: 60px">
+
+            <img ng-show="sexe.maleTaped" src="../img/icon_sexe/maleActive.png" alt=""
+                 style="width: 30px; margin-left: 10px">
+            <img ng-show="sexe.femelTaped" src="../img/icon_sexe/femelActive.png" alt=""
+                 style="width: 30px; margin-left: 10px">
+          </div>
+          <div class="recapTextContainer">
+            <p style="color: white">{{recapCarText}} {{recapSexeText}} - 6min</p>
+          </div>
+        </div>
+
+        <div class="recapPayementContainer">
+          <img ng-show="payementChecked.cardCheked" src="../img/icon_payement/cardActive.png" alt="" style="width: 45px">
+          <img ng-show="payementChecked.cashCheked" src="../img/icon_payement/cardActive.png" alt="" style="width: 45px">
+        </div>
+
+        <div class="recapPayement1Container">
+          <p>Prix</p>
+          <p >45€</p>
+        </div>
+
+      </div>
+
+      <div ng-show="interfaceMapUSer.validationCourseStep == true" class="valideCourseContainer">
+        <button ng-click="backSteps()" class="btnRetour button button-icon icon ion-chevron-left"></button>
+        <button class="btnEndValide">Valider la course</button>
+      </div>
+      <!------------------------------------------------------------------------------------------ -->
+      <!---------------------  End Section 3 Validation ----------------------------------------------------->
+
+      <!---------------------  button de re-géolocalisation ----------------------------------------------------->
+      <button ng-click="reGeolocation()" style=" z-index: 9;position: relative; display: flex; margin-top: auto;">geoloc</button>
+      <!---------------------  button de re-géolocalisation ----------------------------------------------------->
+    </div>
+  </ion-content>
+</ion-view>

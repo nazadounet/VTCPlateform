@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+  <title></title>
+
+  <link rel="manifest" href="manifest.json">
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>-->
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/styleSihame.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+
+
+  <!-- google map api -->
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDSHhwoNsV1WPKaUDNIaFetj92Vqi6Qwxc&libraries=places"></script>
+  <!-- google map api -->
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+
+  <!-- Controller declaration -->
+  <script src="js/controller/SignUpCtrl.js"></script>
+  <script src="js/controller/MapUserCtrl.js"></script>
+  <script src="js/controller/PaiementCtrl.js"></script>
+
+  <script src="js/controller/TestCtrl.js"></script>
+  <!-- Controller declaration -->
+
+  <!-- Services declaration -->
+  <script src="js/modules/factories/InitMapFactory.js"></script>
+  <script src="js/modules/factories/GetGeolocationFactory.js"></script>
+  <script src="js/modules/factories/GeocodingFactory.js"></script>
+  <script src="js/modules/factories/GoogleMapMarkerFactory.js"></script>
+  <script src="js/modules/factories/GetDirectionFactory.js"></script>
+  <script src="js/modules/factories/GetTimeTravel.js"></script>
+  <!-- services declaration -->
+
+</head>
+
+<body ng-app="starter" class="platform-android platform-cordova platform-webview">
+
+<!--------------------------- SIHAME ------------------------------->
+<ion-side-menus>
+
+  <!-- Center content -->
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-starter" align-title="center">
+      <!-- Back button -->
+
+      <!-- Burger button -->
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+          <img style="width:47px; height:48px; margin-top:-7px;margin-left:-25px" src="image/Parcours/Home/menu.png"/>
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <!-- Main view content -->
+    <ion-nav-view></ion-nav-view>
+
+  </ion-side-menu-content>
+
+  <!-- Left menu -->
+  <ion-side-menu side="right">
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <!-- User profile -->
+          <div class="text-center" style="background-color:#302d3f;">
+            <a menu-close ui-sref="profil">
+              <img id=profilmenu class="profile-picture circle" menu-close="" src="./image/Parcours/Home/profil.png">
+              <h5 class="light">Penelope Cruz</h5>
+              <!--notation-->
+              <img class="etoile " src="../image/Parcours/Home/etoile.png"/>
+              <img class="etoile " src="../image/Parcours/Home/etoile.png"/>
+              <img class="etoile " src="../image/Parcours/Home/etoile.png"/>
+              <img class="etoile " src="../image/Parcours/Home/etoile.png"/>
+            </a>
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <p menu-close ui-sref="Link">Link</p>
+        </ion-item>
+
+        <ion-item>
+          <p menu-close ui-sref="MapUser">Carte</p>
+        </ion-item>
+
+        <ion-item>
+          <p menu-close ui-sref="historique">Historique</p>
+        </ion-item>
+
+        <ion-item>
+          <p menu-close ui-sref="paiement">Paiement</p>
+        </ion-item>
+
+        <ion-item>
+          <p  menu-close ui-sref="aide">Aide</p>
+        </ion-item>
+      </ion-list>
+
+
+    </ion-content>
+
+  </ion-side-menu>
+
+</ion-side-menus>
+<!--------------------------- SIHAME ------------------------------->
+
+</body>
+</html>
