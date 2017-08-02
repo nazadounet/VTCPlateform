@@ -1,7 +1,7 @@
 <ion-view  ng-init="init()">
   <ion-content scroll="false">
 
-    <div class="containerMapUser">
+      <div class="containerMapUser Flex-Column Flex-item-center">
 
       <div id="map"></div>
 
@@ -9,7 +9,9 @@
       <!------------------------------------------------------------------------------------------ -->
       <div ng-show="interfaceMapUSer.startDirectionStep == true" class="inputStartContainer">
         <form>
-          <input id="start" type="text" class="inputStart" placeholder="Point de départ" ng-model="startDirection">
+            <input id="start" type="text" class="inputStart" placeholder="Point de départ"
+                   ng-model="userData.markerPosition">
+            <input id="wayPoint" type="text" class="inputStart" placeholder="Point de départ">
         </form>
       </div>
 
@@ -20,7 +22,6 @@
         </p>
 
         <div class="testContainerSexe">
-
 
           <div ng-click="maleTaped()" class="divSexeContainer">
             <img ng-show="!sexe.maleTaped" src="../img/icon_sexe/maleNotActive.png" alt="maleNotActive" class="iconSexe">
@@ -152,9 +153,10 @@
           <button ng-click="toValidationCourseStep()" class="btnEndValide">Valider destination</button>
         </div>
 
-        <button ng-show="!payementChecked.cashCheked && !payementChecked.cardCheked"
-                class="buttonTikTak btnChoicePayementMethode">Choisez methode de paiement
-        </button>
+          <div ng-show="!payementChecked.cashCheked && !payementChecked.cardCheked" class="valideAndBackButton">
+              <button ng-click="backSteps()" class="btnRetour button button-icon icon ion-chevron-left"></button>
+              <button class="buttonTikTak btnChoicePayementMethode">Choisez methode de paiement</button>
+          </div>
       </div>
       <!--------------------- End Section 2 Destination ----------------------------------------------------->
       <!------------------------------------------------------------------------------------------ -->
@@ -213,6 +215,11 @@
       <!------------------------------------------------------------------------------------------ -->
       <!---------------------  End Section 3 Validation ----------------------------------------------------->
 
+          <!---------------------  button de re-géolocalisation ----------------------------------------------------->
+          <button ng-click="reGeolocation()" style=" z-index: 9;position: relative; display: flex; margin-top: auto;">
+              geoloc
+          </button>
+          <!---------------------  button de re-géolocalisation ----------------------------------------------------->
     </div>
   </ion-content>
 </ion-view>

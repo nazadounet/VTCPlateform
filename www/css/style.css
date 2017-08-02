@@ -96,7 +96,13 @@ ion-content.has-header {
   width: 67%;
   height: 40px;
   border:none;
+<<<<<<< HEAD
   position: absolute;
+=======
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+>>>>>>> 09b728b6ee0e1be7ffb9dbca1c77ad02c4a1c19b
 }
 /*-------------------------------------------------------*/
 /******************** End SignUp page ************************/
@@ -105,6 +111,7 @@ ion-content.has-header {
 /*-------------------------------------------------------*/
 /******************** Payement page ************************/
 /*-------------------------------------------------------*/
+<<<<<<< HEAD
 .payementPageContainer{
   display: flex;
   flex-direction:column;
@@ -112,6 +119,8 @@ ion-content.has-header {
   margin-top: -18%;
 }
 
+=======
+>>>>>>> 09b728b6ee0e1be7ffb9dbca1c77ad02c4a1c19b
 .backgroundPayementPage{
   width: 100%;
   margin-top:15%;
@@ -124,7 +133,6 @@ ion-content.has-header {
   color: white;
   background: #3d1f66;
   border:none;
-
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   border-radius:5px 5px 5px 5px;
@@ -137,7 +145,6 @@ ion-content.has-header {
   height: 45px;
   background: #f7f5ff;
   border-color: #9e73bb;
-
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   border-radius:5px 5px 5px 5px;
@@ -150,16 +157,7 @@ ion-content.has-header {
 /*-------------------------------------------------------*/
 /******************** Profil page ************************/
 /*-------------------------------------------------------*/
-#profilPageContainer{
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-}
-
 .imgAndNameContainer{
-  display: flex;
-  flex-direction:column;
-  align-items: center;
   width:100%;
 }
 
@@ -212,12 +210,6 @@ ion-content.has-header {
 
 .titleHelp{
   font-size:16px;
-}
-
-.helpCategorieContainer{
-  display: flex;
-  flex-direction:column;
-  align-items: center;
 }
 
 .btnHelpPage{
@@ -274,6 +266,7 @@ ion-content.has-header {
   margin-top: -20px;
 }
 
+<<<<<<< HEAD
 
 .litigeTitleContainer{
   display: flex;
@@ -282,6 +275,14 @@ ion-content.has-header {
   text-align: center;
   justify-content: center;
 
+=======
+.historiqueTitleContainer {
+  text-align: center;
+    background-color: #403c55;
+    width: 100%;
+    height: 55px;
+    border-bottom: 1px solid white;
+>>>>>>> 09b728b6ee0e1be7ffb9dbca1c77ad02c4a1c19b
 }
 
 
@@ -297,13 +298,13 @@ ion-content.has-header {
 /* Style The Dropdown Button */
 .dropbtn {
   width: 100%;
-  background-color: #302c40;
   color: white;
   height: 30px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-
+    background-color: #312e42;
+    margin-top: 5%;
   -webkit-border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
   border-radius:0px 0px 5px 5px ;
@@ -351,12 +352,8 @@ ion-content.has-header {
 }
 /* Style The Dropdown Button */
 
-.btnSendLitigeContainer{
-  width: 19%;
-}
-
 .btnSendLitige{
-  width: 85%;
+    width: 90%;
   height:30px;
   border: none;
   border-top: #f7f5ff;
@@ -402,9 +399,6 @@ textarea{
   z-index: 0;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction:column;
-  align-items: center;
 }
 
 /*-------------------------------------------------------*/
@@ -617,8 +611,13 @@ textarea{
 }
 
 .btnChoicePayementMethode{
+    width: 81%;
   background: #7e7e7e;
   color: #424242;
+
+    -webkit-border-radius: 0 0 10px 0px;
+    -moz-border-radius: 0 0 10px 0px;
+    border-radius: 0 0 10px 0px;
 }
 
 .valideEndContainer{
@@ -626,7 +625,7 @@ textarea{
   position: relative;
   width: 90%;
   display: flex;
-  flex-direction:column;
+    flex-direction: row;
   background: #302d3f;
   border-top:1px solid white ;
   -webkit-border-radius:0 0 10px 10px;
@@ -766,11 +765,6 @@ textarea{
 /*-------------------------------------------------------------------------------------------*/
 
 .headerContainerhomeAide {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 55px;
   background: #302d40;
@@ -784,15 +778,10 @@ div.headerContainerHomeAide h2{
 }
 
 .pageContainerbulle{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin:2%;
-
+    margin-top: 10px;
 }
 
-.pageContainertitle{
+.pageAideContainertitle {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -817,12 +806,7 @@ div.headerContainerHomeAide h2{
 
 #link {
   color: darkgrey;
-  display: flex;
-  text-align: center;
-  justify-content: center;
 }
-
-
 
 .litigeTitleContainer{
   position: relative;

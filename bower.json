@@ -6,5 +6,9 @@
   },
   "resolutions": {
     "angular": "1.5.3"
+  },
+  "dependencies": {
+    "ionic-datepicker": "^1.2.1",
+    "ionic-timepicker": "^0.6.0"
   }
 }
