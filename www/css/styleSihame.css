@@ -102,11 +102,10 @@ width: 92%;
 
 /* Style the container with a rounded border, grey background and some padding and margin */
 .container {
-    border: 2px solid #7c49f3;
-    background-color: #3d1f66;
-    border-radius: 5px;
-    padding: 16px;
-    margin: 16px 0;
+    background-color: #3f1e64;
+    border-radius: 7px;
+    padding: 1px;
+    margin: 5px 0;
     color:white;
     opacity: 0.8;
     filter:alpha(opacity=50);
@@ -133,21 +132,19 @@ width: 92%;
     margin-right: 15px;
 }
 
-/* Add media queries for responsiveness. This will center both the text and the image inside the container */
-@media (max-width: 200px) {
-    .container {
-        text-align: center;
-    }
-
-    .container img {
-        margin: auto;
-        float: none;
-        display: block;
-    }
-}
 
 
-/*icon itineraire*/
+
+
+/* ***************************   Titre page historique   ************************** */
+
+
+
+
+
+
+
+
 
 
 

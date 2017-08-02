@@ -1,22 +1,37 @@
 <ion-view>
     <ion-content style="background-color:#f7f5ff" scroll="false">
 
+        <!----*********************  Petit CSS POUR TYPO Tittle ***********************--->
+        <style>
+            @font-face {
+                font-family: 'ShadedLarch_PERSONAL_USE';
+                src: url('../Typo/ShadedLarch_PERSONAL_USE.eot') format('eot');
+                src: local("☺"), url('../Typo/ShadedLarch_PERSONAL_USE.woff') format('woff'), url('../Typo/ShadedLarch_PERSONAL_USE.ttf') format('truetype'), url('../Typo/ShadedLarch_PERSONAL_USE.svg') format('svg');
+                font-weight: 700;
+                font-style: normal;
+            }
+        </style>
+        <!----*********************  Petit CSS POUR TYPO Tittle ***********************--->
 
-        <!-----**********************************-----partie header----********************************************------>
-
-        <div class="litigePageContainer Flex-Column Flex-item-center Flex-justify-center">
-              
-            <div class="litigeTitleContainer" style="background-color:#312e42 ">
-                <h2 style="color: white">Litiges</h2>
-            </div>
 
 
-            <!-------*******************************-partie 2 body-*******************************************-->
+
+        <!----*********************  Header Tittle ***********************--->
+        <div  class="jumbotron text-center" style="background-color:transparent;box-shadow: 0 0 1em #291548 ">
+            <h1 style="color:#3f1e64 ;font-family:'ShadedLarch_PERSONAL_USE'; font-size: 50px">Litiges</h1>
+        </div>
+        <!----********************* Fin Header Tittle ***********************--->
+
+
+
+
+
+            <!---***************************-partie 2 body*********************************-->
 
 
             <div class="headerContainer">
                 <div class="dropdownHelp">
-                    <button style="background-color:#312e42;margin-top:5%;" class="dropbtn">Sélectionnez une course
+                    <button style="background-color:#312e42;" class="dropbtn">Sélectionnez une course
                     </button>
                     <div class="dropdown-content">
                         <ion-list>
@@ -41,7 +56,7 @@
 
             <div class="contener-text">
 
-                <form style="width:50%">
+                <form style="width:50%;margin-left: 4%;">
                     <textarea name="" style="border:none" cols="30" rows="15"
                               placeholder="Tapez votre texte ici"></textarea>
                 </form>

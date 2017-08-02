@@ -109,7 +109,7 @@ ion-content.has-header {
   display: flex;
   flex-direction:column;
   align-items: center;
-  margin-top: 20%;
+  margin-top: -18%;
 }
 
 .backgroundPayementPage{
@@ -175,7 +175,7 @@ ion-content.has-header {
 
 .buttonLogOut{
   margin-top: 5vh;
-  background-color: #1f1d2a;
+  background-color:#382060 ;
   color: white;
   width:60%;
   height: 45px;
@@ -360,7 +360,7 @@ ion-content.has-header {
   height:30px;
   border: none;
   border-top: #f7f5ff;
-  background: #039c0f;
+  background: #382060;
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   border-radius:5px 5px 5px 5px ;

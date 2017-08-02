@@ -1,36 +1,46 @@
 <ion-view  style="background-color:#f7f5ff ">
 
-    <!--
-    <img src="../image/Parcours/PageHistorique/fondhistorique.jpeg"/>
-    --->
 
+    <!----************* Fond de la page "vos courses"********************************--->
+    <img src="../image/Parcours/PageHistorique/fond1.jpeg" style="height: 100%; margin-right: 30%"/>
+
+
+
+    <!----*********************  Petit CSS POUR TYPO Tittle ***********************--->
+    <style>
+        @font-face {
+            font-family: 'ShadedLarch_PERSONAL_USE';
+            src: url('../Typo/ShadedLarch_PERSONAL_USE.eot') format('eot');
+            src: local("☺"), url('../Typo/ShadedLarch_PERSONAL_USE.woff') format('woff'), url('../Typo/ShadedLarch_PERSONAL_USE.ttf') format('truetype'), url('../Typo/ShadedLarch_PERSONAL_USE.svg') format('svg');
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+
+    <!----*********************  Fin petit css TYPO Tittle ***********************--->
+
+
+
+
+
+
+    <!----*********************  DEBUT HISTORIQUE  ***********************--->
     <ion-content>
 
-      <div id="historiquePageContainer">
+        <!----*********************   HEADER   ***********************--->
 
-        <div class="litigeTitleContainer" style="height: 80px">
-          <h2 style="color: #302253;">Vos courses</h2>
-        </div>
+            <div id="historiquePageContainer">
 
-         <!--onglet------------------------>
-          <nav class="navbar navbar-default">
-              <div class="container-fluid">
-
-                  <ul class="nav navbar-nav">
-                      <li><a href="#">Page 1</a></li>
-                      <li><a href="#">Page 2</a></li>
-
-                  </ul>
-              </div>
-          </nav>
+                <div  class="jumbotron text-center" style="background-color:transparent;box-shadow: 0 0 1em #291548 ">
+                    <h1 style="color:rgba(255,260,245,0.3) ;font-family:'ShadedLarch_PERSONAL_USE'; font-size: 50px">Vos courses</h1>
+                </div>
 
 
-         <!-- onglet ----->
 
 
-          <!--debut historique--->
+            <!----*********************  CHAUFFEUR N°1   ***********************--->
 
-          <!----------------------- Case 1 ---------------------------->
+                  <!----------------------- Case 1 ---------------------------->
           <div class="container">
               <img src="../image/Parcours/PageHistorique/avatarF.png" alt="Avatar" style="width:90px">
               <p><span >Isabelle Lecompte Dumant</span>N°17546</p>
@@ -44,10 +54,14 @@
                   <div>Prix: 14€</div>
               </div>
           </div>
-          <!----------------------- Fin Case 1 ---------------------------->
+              <!----------------------- Fin Case 1 ---------------------------->
 
 
-          <!----------------------- Case 2---------------------------->
+
+
+            <!----*********************  CHAUFFEUR N°2   ***********************--->
+
+                  <!----------------------- Case 2---------------------------->
           <div class="container">
               <img src="../image/Parcours/PageHistorique/avatarH.png" alt="Avatar" style="width:90px">
               <p><span >Mohamed Belrabet</span>N°14987</p>
@@ -61,39 +75,10 @@
                   <div>Prix: 16€</div>
               </div>
           </div>
-          <!----------------------- Fin Case 2 ---------------------------->
-          <!--fin historique--->
-<!--ancien---
-        <ion-scroll>
-
-             <ion-list style="height: 100%">
-                    <ion-item class="item-icon-right">
-                        <div>
-                            <div class="bold"></div>
-                            <div>De: Villeneuve la garenne, </div>
-                            <div>A: Montmorency, 9 rue de l'ermitage 95160</div>
-                            <div>Prix: 16€</div>
-                            <div>Id chauffeur: 1623</div>
-                        </div>
-
-                    </ion-item>
-
-
-                 <ion-item class="item-icon-right">
-                     <div>
-                         <div class="bold"></div>
-                         <div>De: Villeneuve la garenne, </div>
-                         <div>A: Montmorency, 9 rue de l'ermitage 95160</div>
-                         <div>Prix: 16€</div>
-                         <div>Id chauffeur:  1623</div>
-                     </div>
-
-                 </ion-item>
-                </ion-list>
-        </ion-scroll>
-               fin ancien -->
+             <!----------------------- FIN Case 2---------------------------->
 
       </div>
+
     </ion-content>
 </ion-view>
 
